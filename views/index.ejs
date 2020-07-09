@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MY APP</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.0/dist/bootstrap-table.min.css">
+    r
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <section>
+        <div class="container">
+
+            <h1 class="pt-5 pb-5"> May Node and Express be with you. </h1>
+
+            <form action="/quotes" method="POST">
+                <div class="row">
+                    <div class="form-group col-md-6 col-sm-6 w-100">
+                        <label for="exampleFormControlFile1">Title</label>
+                        <input type="text" class="form-control-file form-control-lg" placeholder="title"
+                            id="exampleFormControlFile1" name="title">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 w-100">
+                        <label for="exampleFormControlFile1">Description</label>
+                        <input type="text" class="form-control-file form-control-lg" placeholder="description"
+                            id="exampleFormControlFile1" name="description">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 col-sm-6 w-100">
+                        <label for="exampleFormControlFile1">Link</label>
+                        <input type="text" id="exampleFormControlFile1" class="form-control-file form-control-lg"
+                            placeholder="link" name="link">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 w-100">
+                        <label for="exampleFormControlFile1">Employee ID</label>
+                        <input type="text" class="form-control-file form-control-lg" placeholder="employeeID"
+                            name="employeeID">
+                    </div>
+                </div>
+                <div class="text-center mt-5 mb-5">
+                    <button type="submit" class="btn btn-primary pt-3 pb-3 pr-5 pl-5">Submit</button>
+                </div>
+            </form>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Darth Vadar invades!</h2>
+                    <p>
+                        Replace first Yoda's quote with a quote written by Darth Vadar
+                    </p>
+                    <button class="btn btn-primary" id="update-button">Replace Yoda's quote</button>
+                </div>
+
+                <div class="col-md-6">
+                    <h2>Remove Darth Vadar!</h2>
+                    <p>
+                        Delete one Darth Vadar's quote. Does nothing if there are no more Darth
+                        Vadar's quote
+                    </p>
+                    <button class="btn btn-danger" id="delete-button">Delete Darth Vadar's quote</button>
+                </div>
+            </div>
+
+            <div id="message"></div>
+            <h2 class="pt-5 pb-5"> Portfolio </h2>
+
+            <table data-toggle="table" class="quotes">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Link</th>
+                        <th>EmployeeID</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < quotes.length; i++) {%>
+                    <tr>
+                        <td><%= quotes[i].title %></td>
+                        <td><%= quotes[i].description %></td>
+                        <td><%= quotes[i].link %></td>
+                        <td><%= quotes[i].employeeID %></td>
+                        <td><button id="update-button" class="btn btn-primary">Edit</button></td>
+                        <td><button id="delete-button" class="btn btn-danger">Delete</button></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+
+            </table>
+
+        </div>
+    </section>
+
+    <script src="/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.17.0/dist/bootstrap-table.min.js"></script>
+</body>
+
+</html>
